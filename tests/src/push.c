@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:31:50 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/03 15:37:09 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:00:25 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	push(t_node **src, t_node **dst)
 	*dst = top;
 }
 
-int pa(t_node **stack_a, t_node **stack_b)
+int pa(t_node **a, t_node **b)
 {
-	push(stack_b, stack_a);
+	push(b, a);
 	ft_printf("pa\n");
 	return (1);
 }
 
-int pb(t_node **stack_a, t_node **stack_b)
+int pb(t_node **a, t_node **b)
 {
-	push(stack_a, stack_b);
+	push(a, b);
 	ft_printf("pb\n");
 	return (1);
 }

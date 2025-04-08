@@ -6,7 +6,7 @@
 #    By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 14:59:26 by rbestman          #+#    #+#              #
-#    Updated: 2025/04/02 18:07:55 by rbestman         ###   ########.fr        #
+#    Updated: 2025/04/07 18:41:40 by rbestman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC_FILES = $(SRC_DIR)/stack_utils.c \
 	$(SRC_DIR)/rotate.c \
 	$(SRC_DIR)/reverse_rotate.c \
 	$(SRC_DIR)/sort_stack.c \
-	$(SRC_DIR)/sort_stack_helpers.c
+	$(SRC_DIR)/sort_stack_helpers.c \
+	$(SRC_DIR)/move_calculation.c
 
 LIBFT_FILES = $(LIBFT_DIR)/ft_atoi.c \
 	$(LIBFT_DIR)/ft_isdigit.c \

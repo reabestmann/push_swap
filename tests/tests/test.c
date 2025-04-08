@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 12:45:32 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/03 15:58:17 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:03:08 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test_operations(int params, char **argv)
 	t_node	*stack_b = NULL;
 
 //parse input and create stack
-	stack_a = parse_input(params, argv);
+	parse_input(&stack_a, params, argv);
 	if (!stack_a)
 	{
 		ft_printf("Error: Invalid Input!\n");
@@ -29,7 +29,7 @@ void	test_operations(int params, char **argv)
 	ft_printf("Initial Stack A:\n(Size: %i)\n", stack_size(stack_a));
 	print_stack(stack_a);
 	ft_printf("\n");
-/*//Test swap (sa)
+//Test swap (sa)
 	ft_printf("\nAfter sa (swap the first two elements of A):\n");
 	sa(&stack_a);
 	print_stack(stack_a);
@@ -54,9 +54,9 @@ void	test_operations(int params, char **argv)
 //Test reverse rotate (rra)
 	ft_printf("\nAfter rra (reverse rotate A down by 1):\n");
 	rra(&stack_a);
-	print_stack(stack_a);*/
+	print_stack(stack_a);
 //Test sorting
-	ft_printf("\nNumber of operations: %i\n", sort_stack(&stack_a));
+	ft_printf("\nNumber of operations: %i\n", sort_stack(&stack_a, &stack_b));
 	ft_printf("\nAfter Sorting:\n");
 	print_stack(stack_a);
 	free_stack(&stack_a);

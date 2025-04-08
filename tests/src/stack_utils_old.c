@@ -1,36 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   stack_utils_old.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:30:41 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/08 17:30:44 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:27:37 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    append_node(t_node **stack, int value)
+t_node *new_node(int value)
 {
-        t_node  *node;
-        t_node  *current;
+	t_node	*node;
 
-        node = malloc(sizeof(t_node));
-        if (!node)
-                return ;
-        node->value = value;
-        node->next = NULL;
-        if (*stack == NULL)
-        {
-                *stack = node;
-                return ;
-        }
-        current = *stack;
-        while (current->next)
-                current = current->next;
-        current->next = node;
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+		return NULL;
+	node->value = value;
+	node->next = NULL;
+	return node;
+}
+
+void	append_node(t_node **stack, int value)
+{
+	t_node	*node;
+	t_node	*temp;
+
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return ;
+	node->value = value;
+	mode->next = NULL;
+	if (*stack == NULL)
+	{
+		*stack = new;
+		return ;
+	}
+	temp = *stack;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
 }
 
 //for debugging purposes
@@ -48,7 +60,6 @@ void	print_stack(t_node *stack)
 		ft_printf("%i\n", stack->value);
 		stack = stack->next;
 	}
-	ft_printf("\n");
 }
 
 void	free_stack(t_node **stack)

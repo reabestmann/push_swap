@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:56:45 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/03 14:00:21 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:37:22 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,34 @@ void	reverse_rotate(t_node **stack)
 	*stack = last;
 }
 
-int	rra(t_node **stack_a)
+int	rra(t_node **a)
 {
-	reverse_rotate(stack_a);
+	reverse_rotate(a);
 	ft_printf("rra\n");
 	return (1);
 }
 
-int	rrb(t_node **stack_b)
+int	rrb(t_node **b)
 {
-	reverse_rotate(stack_b);
+	reverse_rotate(b);
 	ft_printf("rrb\n");
 	return (1);
 }
 
-int	rrr(t_node **stack_a, t_node **stack_b)
+int	rrr(t_node **a, t_node **b, t_node *cheapest)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	int	moves;
+
+	moves = 0;
+	while (*a != cheapest->target && *b != cheapest)
+	{
+		reverse_rotate(a);
+		reverse_rotate(b);
+		moves++;
+	}
+	set_pos(*a);
+	set_pos(*b);
 	ft_printf("rrr\n");
-	return (1);
+	return (moves);
 }
 	

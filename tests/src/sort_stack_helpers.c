@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:04:42 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/03 16:10:19 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:24:36 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,79 +23,43 @@ int	stack_size(t_node *stack)
 		i++;
 	}
 	return (i);
-}
-int	find_biggest(t_node *stack)
+} 
+
+void	set_pos(t_node *stack)
 {
-	t_node	*current;
-	int	biggest;
-	int	biggest_pos;
 	int	i;
 
-	current = stack;
-	biggest = current->value;
 	i = 0;
-	biggest_pos = 0;
-	while (current)
+	if (!stack)
+		return ;
+	while (stack)
 	{
-		if (current->value > biggest)
-		{
-			biggest = current->value;
-			biggest_pos = i;
-		}
-		current = current->next;
+		stack->pos = i;
+		if (i <= stack_size(stack) / 2)
+			stack->upper_half = true;
+		else
+			stack->upper_half = false;
+		stack = stack->next;
 		i++;
 	}
-	return (biggest_pos);
 }
 
-int	find_smallest(t_node *stack)
+t_node	*find_smallest(t_node *stack)
 {
-	t_node	*current;
-	int	smallest;
-	int	smallest_pos;
-	int	i;
+	long	smallest_value;
+	t_node	*smallest;
 
-	current = stack;
-	smallest = current->value;
-	i = 0;
-	smallest_pos = 0;
-	while (current)
+	smallest_value = LONG_MAX;
+	while (stack)
 	{
-		if (current->value < smallest)
+		if (stack->value < smallest_value)
 		{
-			smallest = current->value;
-			smallest_pos = i;
+			smallest_value = stack->value;
+			smallest = stack;
 		}
-		current = current->next;
-		i++;
-	}
-	return (smallest_pos);
-}
-
-int	is_reversed(t_node *stack)
-{
-//	int	moves;
-
-//	moves = 0;
-	while (stack->next)
-	{
-		if (stack->value < stack->next->value)
-			return (0);
 		stack = stack->next;
 	}
-/*	if (stack_size(stack) > 3)
-	{
-		while (stack_size(stack_a) > 3)
-		{
-			moves += rra(&stack_a);
-			moves += pb(&stack_a, &stack_b);
-		}
-		moves += sort_three(&stack_a);
-		while (stack_b)
-			moves += pa(&stack_a, &stack_b);
-		return (moves);
-	}*/
-	return (1);
+	return (smallest);
 }
 
 int	is_sorted(t_node *stack)

@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:30:41 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/08 17:30:44 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/06 19:28:38 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,27 @@
 void    append_node(t_node **stack, int value)
 {
         t_node  *node;
-        t_node  *current;
+	t_node	*current;
 
         node = malloc(sizeof(t_node));
         if (!node)
                 return ;
-        node->value = value;
-        node->next = NULL;
+	node->next = NULL;
+	node->value = value;
         if (*stack == NULL)
         {
                 *stack = node;
+		node->prev = NULL;
                 return ;
         }
-        current = *stack;
-        while (current->next)
-                current = current->next;
+	else
+	{
+		current = *stack;
+        	while (current->next)
+			current = current->next;
         current->next = node;
+	node->prev = current;
+	}
 }
 
 //for debugging purposes

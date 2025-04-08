@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:16:08 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/03 14:02:52 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:58:21 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ void	swap(t_node **stack)
 	*stack = second;
 }
 
-int	sa(t_node **stack_a)
+int	sa(t_node **a)
 {
-	swap(stack_a);
+	swap(a);
 	ft_printf("sa\n");
 	return (1);
 }
 
-int	sb(t_node **stack_b)
+int	sb(t_node **b)
 {
-	swap(stack_b);
+	swap(b);
 	ft_printf("sb\n");
 	return (1);
 }
 
-int	ss(t_node **stack_a, t_node **stack_b)
+int	ss(t_node **a, t_node **b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	swap(a);
+	swap(b);
 	ft_printf("ss\n");
 	return (1);
 }
