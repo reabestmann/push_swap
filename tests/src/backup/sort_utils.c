@@ -1,49 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 18:16:08 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/13 22:25:24 by rbestman         ###   ########.fr       */
+/*   Created: 2025/04/02 16:04:42 by rbestman          #+#    #+#             */
+/*   Updated: 2025/04/13 21:19:13 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_node **stack)
+int	stack_size(t_node *stack)
 {
-	t_node	*first;
-	t_node	*second;
+	int	i;
 
-	if (!stack || !(*stack) || !((*stack)->next))
-		return ;
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
-int	sa(t_node **a)
+int	is_sorted(t_node *stack)
 {
-	swap(a);
-	ft_printf("sa\n");
-	return (1);
-}
-
-int	sb(t_node **b)
-{
-	swap(b);
-	ft_printf("sb\n");
-	return (1);
-}
-
-int	ss(t_node **a, t_node **b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
 	return (1);
 }

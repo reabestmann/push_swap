@@ -6,13 +6,13 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:48:51 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/07 18:37:03 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/13 22:49:09 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_node **stack)
+static void	rotate(t_node **stack)
 {
 	t_node	*first;
 	t_node	*last;
@@ -47,14 +47,14 @@ int	rr(t_node **a, t_node **b, t_node *cheapest)
 	int	moves;
 
 	moves = 0;
-	while (*a != cheapest->target && *b != cheapest)
+	while (*b != cheapest->target && *a != cheapest)
 	{
 		rotate(a);
 		rotate(b);
+		ft_printf("rr\n");
 		moves++;
 	}
 	set_pos(*a);
 	set_pos(*b);
-	ft_printf("rr\n");
 	return (moves);
 }

@@ -6,7 +6,7 @@
 #    By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 14:59:26 by rbestman          #+#    #+#              #
-#    Updated: 2025/04/07 18:41:40 by rbestman         ###   ########.fr        #
+#    Updated: 2025/04/13 23:33:05 by rbestman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,18 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes
 SRC_DIR = src
 LIBFT_DIR = libft
 PRINTF_DIR = ft_printf
-TEST_DIR = tests
+MAIN_DIR = main
 
 # Source files (excluding main.c)
-SRC_FILES = $(SRC_DIR)/stack_utils.c \
-	$(SRC_DIR)/input_handling.c \
+SRC_FILES = $(SRC_DIR)/create_stack.c \
+	$(SRC_DIR)/error_utils.c \
 	$(SRC_DIR)/swap.c \
 	$(SRC_DIR)/push.c \
 	$(SRC_DIR)/rotate.c \
 	$(SRC_DIR)/reverse_rotate.c \
 	$(SRC_DIR)/sort_stack.c \
-	$(SRC_DIR)/sort_stack_helpers.c \
-	$(SRC_DIR)/move_calculation.c
+	$(SRC_DIR)/find_nodes.c \
+	$(SRC_DIR)/node_utils.c
 
 LIBFT_FILES = $(LIBFT_DIR)/ft_atoi.c \
 	$(LIBFT_DIR)/ft_isdigit.c \
@@ -52,20 +52,20 @@ PRINTF_FILES = $(PRINTF_DIR)/ft_print_char.c \
 	$(PRINTF_DIR)/ft_print_unsigned_int.c \
 	$(PRINTF_DIR)/ft_utoa.c
 
-# Test files
-TEST_FILES = $(TEST_DIR)/test.c $(TEST_DIR)/test_main.c
+# main files
+MAIN_FILES = $(MAIN_DIR)/main.c
 
 # Object files
-OBJ_FILES = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o) $(PRINTF_FILES:.c=.o) $(TEST_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o) $(PRINTF_FILES:.c=.o) $(MAIN_FILES:.c=.o)
 
 # Output executable for tests
-TEST_NAME = test_program
+NAME = push_swap
 
 # Compile test program
-all: $(TEST_NAME)
+all: $(NAME)
 
-$(TEST_NAME): $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(OBJ_FILES) -o $(TEST_NAME)
+$(NAME): $(OBJ_FILES)
+	$(CC) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 
 # Compile object files
 %.o: %.c
@@ -76,7 +76,7 @@ clean:
 	rm -f $(OBJ_FILES)
 
 fclean: clean
-	rm -f $(TEST_NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
