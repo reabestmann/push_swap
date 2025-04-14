@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:30:41 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 02:57:58 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 05:45:48 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,26 @@ static long	ft_atol(const char *str)
 static void	append_node(t_node **stack, int value)
 {
 	t_node	*node;
-	t_node	*current;
+	t_node	*last;
 
+	if (!stack)
+		return ;
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return ;
 	node->value = value;
 	node->next = NULL;
-	if (*stack == NULL)
+	if (!(*stack))
 	{
 		*stack = node;
-		return ;
+		node->prev = NULL;
 	}
-	current = *stack;
-	while (current->next)
-		current = current->next;
-	current->next = node;
+	else
+	{
+		last = find_last(*stack);
+		last->next = node;
+		node->prev = last;
+	}
 }
 
 void	parse_input(t_node **a, char **argv)

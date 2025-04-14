@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:16:08 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/13 22:25:24 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 05:40:46 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 static void	swap(t_node **stack)
 {
-	t_node	*first;
-	t_node	*second;
-
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 }
 
 int	sa(t_node **a)

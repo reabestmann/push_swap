@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:56:45 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/13 22:22:39 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 05:34:16 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 static void	reverse_rotate(t_node **stack)
 {
-	t_node	*second_last;
 	t_node	*last;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
-	second_last = NULL;
-	last = *stack;
-	while (last->next)
-	{
-		second_last = last;
-		last = last->next;
-	}
-	second_last->next = NULL;
+	last = find_last(*stack);
+	last->prev->next = NULL;
 	last->next = *stack;
+	last->prev = NULL;
 	*stack = last;
+	last->next->prev = last;
 }
 
 int	rra(t_node **a)

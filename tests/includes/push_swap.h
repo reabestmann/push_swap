@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:38:40 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 05:22:22 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 07:22:32 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_node	*find_cheapest(t_node *stack);
 t_node	*find_smallest(t_node *stack);
 t_node	*find_biggest(t_node *stack);
 /*node_utils.c*/
-void	set_nodes(t_node *a, t_node *b);
+void	set_nodes(t_node *a, t_node *b, char name);
 void	set_pos(t_node *stack);
 /*push.c*/
 int		pa(t_node **a, t_node **b);

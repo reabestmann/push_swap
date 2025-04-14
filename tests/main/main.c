@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:42:11 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 04:51:01 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 07:24:35 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-//for debugging
+/*/for debugging
 void    print_stack(t_node *stack)
 {
         if (!stack)
@@ -29,7 +29,7 @@ void    print_stack(t_node *stack)
         }
         ft_printf("\n");
 }
-/*
+
 void	operations_debug(t_node *stack_a, t_node *stack_b)
 {
 //Test swap (sa)
@@ -57,7 +57,7 @@ void	operations_debug(t_node *stack_a, t_node *stack_b)
 	ft_printf("\nAfter rra (reverse rotate A down by 1):\n");
 	rra(&stack_a);
 	print_stack(stack_a);
-}*/
+}
 
 int     main(int params, char **argv)
 {
@@ -76,6 +76,7 @@ int     main(int params, char **argv)
         size = stack_size(a);
 	ft_printf("\nInitial Stack:\n");
 	print_stack(a);
+	operations_debug(a, b);
 	ft_printf("Size: %i\n", size);
 	moves = 0;
         if (!is_sorted(a))
@@ -91,8 +92,7 @@ int     main(int params, char **argv)
 	print_stack(a);
         free_stack(&a);
         return (0);
-}
-/*
+}*/
 int	main(int params, char **argv)
 {
 	t_node	*a;
@@ -118,4 +118,4 @@ int	main(int params, char **argv)
 	}
 	free_stack(&a);
 	return (0);
-}*/
+}

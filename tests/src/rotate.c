@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:48:51 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/13 22:49:09 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 05:31:53 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 static void	rotate(t_node **stack)
 {
-	t_node	*first;
 	t_node	*last;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
-	first = *stack;
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	*stack = first->next;
-	last->next = first;
-	first->next = NULL;
+	last = find_last(*stack);
+	last->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last->next->prev = last;
+	last->next->next= NULL;
 }
 
 int	ra(t_node **a)

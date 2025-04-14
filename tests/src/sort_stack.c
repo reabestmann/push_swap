@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:43:25 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 03:47:44 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 07:23:06 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,13 @@ int	push_swap(t_node **a, t_node **b, int size)
 		moves += pb(a, b);
 	while (size-- > 3 && !is_sorted(*a))
 	{
-		set_nodes(*a, *b);
+		set_nodes(*a, *b, 'a');
 		moves += a_to_b(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		set_nodes(*a, *b);
+		set_nodes(*a, *b, 'b');
 		moves += b_to_a(a, b);
 	}
 	set_pos(*a);

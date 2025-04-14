@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:31:50 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/13 22:13:02 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/14 05:47:24 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,24 @@ static void	push(t_node **src, t_node **dst)
 {
 	t_node	*top;
 
-	if (!src || !(*src))
-		return ;
+	if (!*src)
+		return;
 	top = *src;
 	*src = (*src)->next;
-	top->next = *dst;
-	*dst = top;
+	if (*src)
+		(*src)->prev = NULL;
+	top->prev = NULL;
+	if (!*dst)
+	{
+		*dst = top;
+		top->next = NULL;
+	}
+	else
+	{
+		top->next = *dst;
+		top->next->prev = top;
+		*dst = top;
+	}
 }
 
 int	pa(t_node **a, t_node **b)
