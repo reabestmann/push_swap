@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:38:40 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 07:22:32 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:37:14 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	free_error(t_node **a, char **input);
 /*find_nodes.c*/
 t_node	*find_last(t_node *stack);
 t_node	*find_cheapest(t_node *stack);
+t_node	*find_cheapest_chunk(t_node *stack, int min, int max);
 t_node	*find_smallest(t_node *stack);
 t_node	*find_biggest(t_node *stack);
 /*node_utils.c*/

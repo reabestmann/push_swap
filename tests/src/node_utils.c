@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:29:05 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 07:22:10 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:54:31 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,29 @@ static void	set_target_a(t_node *src, t_node *dst)
 
 static void	set_price(t_node *src, t_node *dst)
 {
+	int	size_a;
+	int	size_b;
+	int	tmp;
+
+	size_a = stack_size(src);
+	size_b = stack_size(dst);
 	while (src)
 	{
-		src->price = src->pos;
-		if (!(src->upper_half))
-			src->price = stack_size(src) - (src->pos);
-		if (src->target->upper_half)
-			src->price += src->target->pos;
+		if (src->upper_half)
+			src->price = src->pos;
 		else
-			src->price += stack_size(dst) - (src->target->pos);
+			src->price = size_a - src->pos;
+		if (src->target->upper_half)
+			tmp = src->target->pos;
+		else
+			tmp = size_b - src->target->pos;
+		if (src->upper_half == src->target->upper_half)
+		{
+			if (src->price < tmp)
+				src->price = tmp;
+		}
+		else
+			src->price += tmp;
 		src = src->next;
 	}
 }

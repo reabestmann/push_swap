@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:42:11 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 07:24:35 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:01:24 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ int     main(int params, char **argv)
         size = stack_size(a);
 	ft_printf("\nInitial Stack:\n");
 	print_stack(a);
-	operations_debug(a, b);
-	ft_printf("Size: %i\n", size);
+//	operations_debug(a, b);
 	moves = 0;
         if (!is_sorted(a))
         {
@@ -88,8 +87,9 @@ int     main(int params, char **argv)
                 else
                         moves += push_swap(&a, &b, size);
         }
-	ft_printf("\nStack after %i moves:\n", moves);
+	ft_printf("\nStack after sorting:\n");
 	print_stack(a);
+	ft_printf("Stack size: %i\nMoves: %i\n", size, moves);
         free_stack(&a);
         return (0);
 }*/
