@@ -6,11 +6,11 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:52:39 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/02 12:33:28 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:44:27 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
 # include <stdarg.h>

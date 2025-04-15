@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:43:25 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 07:23:06 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:45:31 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,4 @@ int	push_swap(t_node **a, t_node **b, int size)
 	set_pos(*a);
 	moves += to_top(a, find_smallest(*a), 'a');
 	return (moves);
-}
+/home/rbestman/pushswap/tests/tester}

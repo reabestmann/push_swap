@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:48:51 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 05:31:53 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:48:21 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	rotate(t_node **stack)
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	last->next->prev = last;
-	last->next->next= NULL;
+	last->next->next = NULL;
 }
 
 int	ra(t_node **a)
