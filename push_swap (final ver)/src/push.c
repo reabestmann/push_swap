@@ -6,12 +6,14 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:31:50 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 10:46:26 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:29:30 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*command to push the top node of a stack to the top
+	of the opposite stack*/
 static void	push(t_node **src, t_node **dst)
 {
 	t_node	*top;

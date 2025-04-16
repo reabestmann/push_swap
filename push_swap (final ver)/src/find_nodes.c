@@ -6,12 +6,13 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:04:42 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 14:36:03 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:20:49 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*returns last node of the stack*/
 t_node	*find_last(t_node *stack)
 {
 	if (!stack)
@@ -21,6 +22,7 @@ t_node	*find_last(t_node *stack)
 	return (stack);
 }
 
+/*returns the 'cheapest' node of a stack*/
 t_node	*find_cheapest(t_node *stack)
 {
 	long	cheapest_price;
@@ -42,6 +44,7 @@ t_node	*find_cheapest(t_node *stack)
 	return (cheapest);
 }
 
+/*returns the node with the smallest value of a stack*/
 t_node	*find_smallest(t_node *stack)
 {
 	long	smallest_value;
@@ -60,6 +63,7 @@ t_node	*find_smallest(t_node *stack)
 	return (smallest);
 }
 
+/*returns the node with the biggest value of a stack*/
 t_node	*find_biggest(t_node *stack)
 {
 	long	biggest_value;

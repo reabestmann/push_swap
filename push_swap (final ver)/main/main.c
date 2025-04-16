@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:42:11 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 16:01:24 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:48:17 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int     main(int params, char **argv)
         free_stack(&a);
         return (0);
 }*/
+
 int	main(int params, char **argv)
 {
 	t_node	*a;
@@ -101,7 +102,7 @@ int	main(int params, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (params == 1 || (params == 2 && !argv[1][0]))
+	if (params < 2 || (params == 2 && !argv[1][0]))
 		return (1);
 	parse_input(&a, argv + 1);
 	if (!a)

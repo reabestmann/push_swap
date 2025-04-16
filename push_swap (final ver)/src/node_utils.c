@@ -6,12 +6,14 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 16:29:05 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 15:54:31 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:28:28 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*assigns a 'target' node to each node of stack b -
+	node in stack a with the next bigger value*/
 static void	set_target_b(t_node *src, t_node *dst)
 {
 	t_node	*current_dst;
@@ -37,6 +39,8 @@ static void	set_target_b(t_node *src, t_node *dst)
 	}
 }
 
+/*assigns a 'target' node to each node of stack a -
+	node in stack b with the next smaller value*/
 static void	set_target_a(t_node *src, t_node *dst)
 {
 	t_node	*current_dst;
@@ -62,6 +66,8 @@ static void	set_target_a(t_node *src, t_node *dst)
 	}
 }
 
+/*calculates the number of moves it would take for each node
+	to be pushed to its target*/
 static void	set_price(t_node *src, t_node *dst)
 {
 	int	size_a;
@@ -91,6 +97,7 @@ static void	set_price(t_node *src, t_node *dst)
 	}
 }
 
+/*sets the current position of each node*/
 void	set_pos(t_node *stack)
 {
 	int	i;
@@ -110,6 +117,7 @@ void	set_pos(t_node *stack)
 	}
 }
 
+/*sets each nodes 'stats'*/
 void	set_nodes(t_node *a, t_node *b, char name)
 {
 	set_pos(a);

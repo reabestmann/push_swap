@@ -6,12 +6,13 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:30:41 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 15:38:30 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:18:41 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*checks if input is in valid syntax*/
 int	syntax_error(char *str)
 {
 	if (!(*str == '-' || *str == '+' || ft_isdigit(*str)))
@@ -26,6 +27,7 @@ int	syntax_error(char *str)
 	return (0);
 }
 
+/*checks if any values are duplicates*/
 int	duplicate_error(t_node *a, int n)
 {
 	if (!a)
@@ -39,6 +41,7 @@ int	duplicate_error(t_node *a, int n)
 	return (0);
 }
 
+/*frees the input array after usage*/
 void	free_array(char **input)
 {
 	int	i;
@@ -49,6 +52,7 @@ void	free_array(char **input)
 	free(input);
 }
 
+/*frees the stack after usage*/
 void	free_stack(t_node **stack)
 {
 	t_node	*temp;
@@ -64,6 +68,8 @@ void	free_stack(t_node **stack)
 	*stack = NULL;
 }
 
+/*frees data and writes an Error message 
+	to stderr in case of Errors*/
 void	free_error(t_node **a, char **input)
 {
 	free_array(input);

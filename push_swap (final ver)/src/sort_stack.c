@@ -6,12 +6,13 @@
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:43:25 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/15 14:38:46 by rbestman         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:45:14 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*(reverse)rotates until a given node is on top of its stack*/
 static int	to_top(t_node **stack, t_node *node, char name)
 {
 	int	moves;
@@ -37,6 +38,8 @@ static int	to_top(t_node **stack, t_node *node, char name)
 	return (moves);
 }
 
+/*finds the next node to be pushed to b, puts it and its
+	target into the correct position and pushes*/
 static int	a_to_b(t_node **a, t_node **b)
 {
 	t_node	*cheapest;
@@ -54,6 +57,8 @@ static int	a_to_b(t_node **a, t_node **b)
 	return (moves);
 }
 
+/*puts the target node of the top node in stack
+	b on top of a & pushes back b node to a*/
 static int	b_to_a(t_node **a, t_node **b)
 {
 	int	moves;
@@ -64,6 +69,7 @@ static int	b_to_a(t_node **a, t_node **b)
 	return (moves);
 }
 
+/*sorts three numbers in a in 1-2 moves*/
 int	sort_three(t_node **a)
 {
 	t_node	*biggest;
@@ -80,6 +86,7 @@ int	sort_three(t_node **a)
 	return (moves);
 }
 
+/*our sorting algorithm*/
 int	push_swap(t_node **a, t_node **b, int size)
 {
 	int	moves;

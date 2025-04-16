@@ -1,55 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 18:56:45 by rbestman          #+#    #+#             */
-/*   Updated: 2025/04/14 05:34:16 by rbestman         ###   ########.fr       */
+/*   Created: 2025/03/28 18:48:51 by rbestman          #+#    #+#             */
+/*   Updated: 2025/04/16 12:35:08 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse_rotate(t_node **stack)
+/*rotates the top node of a stack to be at the
+	last position of the same stack*/
+static void	rotate(t_node **stack)
 {
 	t_node	*last;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
 	last = find_last(*stack);
-	last->prev->next = NULL;
 	last->next = *stack;
-	last->prev = NULL;
-	*stack = last;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	last->next->prev = last;
+	last->next->next = NULL;
 }
 
-int	rra(t_node **a)
+int	ra(t_node **a)
 {
-	reverse_rotate(a);
-	ft_printf("rra\n");
+	rotate(a);
+	ft_printf("ra\n");
 	return (1);
 }
 
-int	rrb(t_node **b)
+int	rb(t_node **b)
 {
-	reverse_rotate(b);
-	ft_printf("rrb\n");
+	rotate(b);
+	ft_printf("rb\n");
 	return (1);
 }
 
-int	rrr(t_node **a, t_node **b, t_node *cheapest)
+/*combines the rotations of a node and its target
+	until either is on top of its stack*/
+int	rr(t_node **a, t_node **b, t_node *cheapest)
 {
 	int	moves;
 
 	moves = 0;
 	while (*b != cheapest->target && *a != cheapest)
 	{
-		reverse_rotate(a);
-		reverse_rotate(b);
-		ft_printf("rrr\n");
+		rotate(a);
+		rotate(b);
+		ft_printf("rr\n");
 		moves++;
 	}
 	set_pos(*a);
